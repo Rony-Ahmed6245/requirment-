@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* google fonts link up  */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Dosis:wght@200..800&family=Great+Vibes&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+
+
+
+body {
+
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+
+}
+
+.bg5{
+  background: url('./assets/bit.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height:100vh;
+}
+.glass{
+  background: rgba( 255, 255, 255, 0 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 6px );
+-webkit-backdrop-filter: blur( 6px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+/* indicator css  */
+.parent {
+  display: flex;
+  justify-content: center;
+  height: 1060px;
+  align-items: center;
+  transition: all 0.4s;
+}
+
+.square {
+  background-color: rgba(228, 34, 16, 0.87);
+  height: 13px;
+  width: 13px;
+  animation: rayan 1.2s infinite;
+}
+
+.circle {
+
+  height: 12px;
+  width: 12px;
+  background-color: rgba(16, 228, 16, 0.87);
+  border-radius: 50%;
+  animation: rayan 1.2s infinite;
+  animation-delay: .4s;
+}
+
+@keyframes rayan {
+  100% {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+
+
+/* animation btn css  */
+.button {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: rgb(0 107 179);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffff;
+  gap: 10px;
+  font-weight: bold;
+  border: 3px solid #ffffff4d;
+  outline: none;
+  overflow: hidden;
+  font-size: 15px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  border-color: #fff9;
+}
+
+.button:hover .icon {
+  transform: translate(4px);
+}
+
+.button:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%);
+  top: 0;
+  left: -100px;
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+
+  60% {
+    left: 100%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+
+/* animation inputs  */
+.input-container {
+  position: relative;
+}
+
+.input {
+  font-size: 1em;
+  padding: 0.6em 1em;
+  border: none;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 500px;
+  color: #333;
+}
+
+.input:hover {
+  background-color: #f2f2f2;
+}
+
+.input:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #6c63ff;
+  transition: width 0.3s ease;
+}
+
+.input:focus + .highlight {
+  width: 100%;
+}
+
+/* Optional: Animation on focus */
+@keyframes input-focus {
+  from {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  to {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.input:focus {
+  animation: input-focus 0.3s ease;
+}
+
+
+/* loader css  */
+.traffic-loader {
+  width: 20px;
+  height: 20px;
+  --c: radial-gradient(farthest-side, #fff 92%, #0000);
+  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+    var(--c) 0 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  animation: s8 1s infinite;
+  position: relative;
+}
+
+.traffic-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: 3px;
+  background: repeating-conic-gradient(#0000 0 35deg, #fff 0 90deg);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
+  border-radius: 50%;
+}
+
+@keyframes s8 {
+  100% {
+    transform: rotate(0.5turn);
+  }
+}
+
+
