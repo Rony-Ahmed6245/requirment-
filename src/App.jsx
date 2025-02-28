@@ -1,5 +1,8 @@
 import { Outlet } from "react-router-dom"
 import logo from './assets/Black & White Minimalist Business Logo (1).png'
+import Cart from './pages/Cart';
+import Forgate from "./pages/Forgate";
+import Pagination from "./pages/Pagination";
 
 function App() {
 
@@ -53,6 +56,9 @@ function App() {
 
           <div className=" ">
             <Outlet></Outlet>
+            <Cart></Cart>
+            <Forgate></Forgate>
+            <Pagination></Pagination>
           </div>
         </div>
         <div className="drawer-side">
